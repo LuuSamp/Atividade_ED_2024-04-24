@@ -21,6 +21,11 @@ void insertAfter(Node**, int);
 void deleteNode(Node**, Node*);
 void displayList(Node*);
 
+// Das atividades.
+Node* searchNodebyValue(Node**, int);
+void insertBefore(Node**, int);
+void deleteNodebyValue(Node**, int);
+
 // Driver Code
 int main()
 {
