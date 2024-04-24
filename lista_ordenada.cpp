@@ -23,7 +23,7 @@ void displayList(Node*);
 
 // Das atividades.
 Node* searchNodebyValue(Node**, int);
-void insertBefore(Node**, int);
+void insertBefore(Node*, int);
 void deleteNodebyValue(Node**, int);
 
 // Driver Code
@@ -163,5 +163,25 @@ void deleteNode(Node** head, Node* ptrDelete)
 }
 
 // Exercício 1: Elaborar o método void insertBefore(Node**, int);
+
+void insertBefore(Node* ptrLocation, int iPayLoad)
+{
+    if (ptrLocation == nullptr)
+	{
+		cout << "Location é NULL" << endl;
+	}
+	
+	Node* newNode = createNode(iPayLoad);
+
+    // Corrigindo nó a ser inserido
+    newNode->ptrPrev = ptrLocation->ptrPrev;
+    newNode->ptrNext = ptrLocation;
+
+    // Corrigindo o ponto de inserção
+    ptrLocation->ptrPrev = newNode;
+
+    if (newNode->ptrPrev != nullptr) newNode->ptrPrev->ptrNext = newNode;
+}
+
 // Exercício 2: Elaborar a função void deleteNodebyValue(Node**, int);
 // Exercício 3: Elaborar a função Node* searchNodebyValue(Node**, int);
