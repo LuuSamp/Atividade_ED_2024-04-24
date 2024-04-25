@@ -49,11 +49,7 @@ int main()
     displayList(head);
     cout << "====================================" << endl;
 
-
-    node = searchNodebyValue(&head, 25);
-    deleteNode(&head, node);
-
-    //deleteNodebyValue(&head, 25);
+    deleteNodebyValue(&head, 25);
     displayList(head);
 
     return 0;
@@ -170,7 +166,7 @@ void deleteNode(Node** head, Node* ptrDelete)
 	if (ptrDelete->ptrNext != nullptr) ptrDelete->ptrNext->ptrPrev = ptrDelete->ptrPrev;
 
 	// Se o ptrDelete não é o primeiro nó
-	if (ptrDelete->ptrPrev == nullptr) ptrDelete->ptrPrev->ptrNext = ptrDelete->ptrNext;
+	if (ptrDelete->ptrPrev != nullptr) ptrDelete->ptrPrev->ptrNext = ptrDelete->ptrNext;
 	
 	free(ptrDelete);
 }
