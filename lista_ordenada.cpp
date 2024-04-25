@@ -45,6 +45,12 @@ int main()
     // Deve dar mensagem de "Meio da Lista"
     displayList(searchNodebyValue(&head, 3));
 
+    Node* node = searchNodebyValue(&head, 7);
+
+    insertBefore(node, 25);
+
+    displayList(head);
+
     return 0;
 }
 
