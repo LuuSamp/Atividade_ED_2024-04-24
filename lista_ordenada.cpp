@@ -42,6 +42,8 @@ int main()
     insertEnd(&head, 13);
     displayList(head);
     cout << "====================================" << endl;
+    // Deve dar mensagem de "Meio da Lista"
+    displayList(searchNodebyValue(&head, 3));
 
     return 0;
 }
@@ -165,3 +167,21 @@ void deleteNode(Node** head, Node* ptrDelete)
 // Exercício 1: Elaborar o método void insertBefore(Node**, int);
 // Exercício 2: Elaborar a função void deleteNodebyValue(Node**, int);
 // Exercício 3: Elaborar a função Node* searchNodebyValue(Node**, int);
+
+Node* searchNodebyValue(Node** head, int iValue)
+{
+    if (*head == nullptr)
+    {
+        cout << "Lista vazia: Nao foi possivel realizar searchNodebyValue" << endl;
+        return nullptr;
+    }
+
+    Node* current = (*head);
+
+    while(current != nullptr){
+        if(current -> iPayload == iValue) return current;
+        current = current -> ptrNext;
+    }
+
+    return nullptr;
+}
