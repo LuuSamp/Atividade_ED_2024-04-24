@@ -42,13 +42,18 @@ int main()
     insertEnd(&head, 13);
     displayList(head);
     cout << "====================================" << endl;
-    // Deve dar mensagem de "Meio da Lista"
-    displayList(searchNodebyValue(&head, 3));
 
     Node* node = searchNodebyValue(&head, 7);
 
     insertBefore(node, 25);
+    displayList(head);
+    cout << "====================================" << endl;
 
+
+    node = searchNodebyValue(&head, 25);
+    deleteNode(&head, node);
+
+    //deleteNodebyValue(&head, 25);
     displayList(head);
 
     return 0;
@@ -177,6 +182,8 @@ void insertBefore(Node* ptrLocation, int iPayLoad)
     if (ptrLocation == nullptr)
 	{
 		cout << "Location é NULL" << endl;
+        
+        return;
 	}
 	
 	Node* newNode = createNode(iPayLoad);
@@ -192,6 +199,13 @@ void insertBefore(Node* ptrLocation, int iPayLoad)
 }
 
 // Exercício 2: Elaborar a função void deleteNodebyValue(Node**, int);
+
+void deleteNodebyValue(Node** head, int iValue)
+{
+    Node* node = searchNodebyValue(head, iValue);
+    deleteNode(head, node);
+}
+
 // Exercício 3: Elaborar a função Node* searchNodebyValue(Node**, int);
 
 Node* searchNodebyValue(Node** head, int iValue)
