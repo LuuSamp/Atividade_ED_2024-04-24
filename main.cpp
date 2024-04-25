@@ -14,10 +14,9 @@ typedef struct Node
     Node* ptrPrev;
 } Node;
 
+// Da aula (funções inutilizadas foram removidas)
 Node* createNode(int);
-void insertFront(Node**, int);
 void insertEnd(Node**, int);
-void insertAfter(Node**, int);
 void deleteNode(Node**, Node*);
 void displayList(Node*);
 
@@ -102,23 +101,6 @@ void displayList(Node* node)
     cout << endl;
 }
 
-void insertFront(Node** head, int iPayload)
-{
-    Node* newNode = createNode(iPayload);
-	// newNode->ptrPrev = nullptr;
-	
-	if (*head != nullptr)
-	{
-		(*head)->ptrPrev = newNode;
-		newNode->ptrNext = (*head);
-		(*head) = newNode;
-		return;
-	}
-	
-	(*head) = newNode;
-	
-}
-
 void insertEnd(Node** head, int iPayload)
 {
     Node* newNode = createNode(iPayload);
@@ -139,25 +121,6 @@ void insertEnd(Node** head, int iPayload)
     newNode->ptrPrev = temp; //newNode aponta para o fim da lista
     temp->ptrNext = newNode; //antigo último elemento aponta para o novo nó
 
-}
-
-void insertAfter(Node* ptrLocation, int iPayLoad)
-{
-	if (ptrLocation == nullptr)
-	{
-		cout << "Location é NULL" << endl;
-	}
-	
-	Node* newNode = createNode(iPayLoad);
-	
-	// Corrigir nó a ser inserido
-	newNode->ptrNext = ptrLocation->ptrNext;
-	newNode->ptrPrev = ptrLocation;
-	
-	// Corrigir o ponto de inserção
-	ptrLocation->ptrNext = newNode;
-	
-	if (newNode->ptrNext != nullptr) newNode->ptrNext->ptrPrev = newNode;
 }
 
 void deleteNode(Node** head, Node* ptrDelete)
