@@ -31,9 +31,14 @@ int main()
 {
     // Lista duplamente encadeada
     Node* head = nullptr;
-    displayList(head);
-    cout << "====================================" << endl;
+    //displayList(head);
 
+    cout << "====================================================================" << endl;
+    cout << "------------------------- Atividade de ED -------------------------" << "\n\n";
+
+    cout << "-------------------------- Lista inicial --------------------------" << endl;
+
+    // Adicionando elementos para lista inicial
     insertEnd(&head, 0);
     insertEnd(&head, 1);
     insertEnd(&head, 3);
@@ -41,13 +46,17 @@ int main()
     insertEnd(&head, 10);
     insertEnd(&head, 13);
     displayList(head);
-    cout << "====================================" << endl;
+    cout << "====================================================================" << endl;
+
+    cout << "--------------- Inserindo valor 25 antes do valor 7 ---------------" << endl;
 
     Node* node = searchNodebyValue(&head, 7);
 
     insertBefore(node, 25);
     displayList(head);
-    cout << "====================================" << endl;
+    cout << "====================================================================" << endl;
+
+    cout << "------------------------ Deletando valor 25 ------------------------" << endl;
 
     deleteNodebyValue(&head, 25);
     displayList(head);
